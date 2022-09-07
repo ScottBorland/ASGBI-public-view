@@ -63,10 +63,8 @@ function createTable(tableData) {
     var tableBody = document.createElement('tbody');
   
     tableData.forEach(function(rowData, index) {
-        if(index == 0){return}else{
-            var row = document.createElement('tr')
-        }
-      
+    
+        var row = document.createElement('tr')
   
       rowData.forEach(function(cellData) {
         var cell = document.createElement('td');
