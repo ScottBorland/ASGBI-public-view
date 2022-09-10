@@ -28,15 +28,17 @@ const checkIfRowsLoaded = (rows) => {
 
 const createPage = (rows) => {
     console.log(rows)
-    retrieveDate(rows)
-    findRoomRow(rows)
-    listRooms(rows)
-    listSpeakers(rows)
-    handleEmptyCells(rows)
-    convertDatesToInt(rows)
-    replaceStringCharacter(rows, '<', '')
-    replaceStringCharacter(rows, '>', '')
-    createTable(rows)
+    rows.forEach((row) => {
+        retrieveDate(row)
+        findRoomRow(row)
+        listRooms(row)
+        listSpeakers(row)
+        handleEmptyCells(row)
+        convertDatesToInt(row)
+        replaceStringCharacter(row, '<', '')
+        replaceStringCharacter(row, '>', '')
+        createTable(row)
+    })
 }
 
 const retrieveDate = (rows) => {

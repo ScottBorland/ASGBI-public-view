@@ -25,9 +25,10 @@ table {
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15 );
     white-space: pre-line;
-    border: 1px solid black;
+    border: 0px solid black;
     padding-bottom: 40px;
     margin-top: 20px;
+    margin-bottom: 40px;
   }
 
   /* table tbody tr {
@@ -62,7 +63,7 @@ table {
     padding: 2px 5px;
     max-width: 800px;
     border-right: black solid 1px;
-    border-left: black solid 1px;
+    border-left: black solid 0px;
     text-align: center;
     padding-top: 8px;
     padding-bottom: 8px;
