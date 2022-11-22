@@ -86,20 +86,25 @@ function createTable(tableData) {
 
 const setCellColor = (cell, cellData) => {
     if(checkStringForCharacter(cellData, '[s]')){
-        cell.style.backgroundColor = 'lightgreen'
+        cell.style.backgroundColor = '#2A9D8F'
         cellData = replaceCellCharacter(cellData, '[s]', '')
     }else if (checkStringForCharacter(cellData, '[p]')){
-        cell.style.backgroundColor = 'lightblue'
-        cellData = replaceCellCharacter(cellData, '[p]', '')
+        cell.style.backgroundColor = '#E9C46A'
+        cellData = replaceCellCharacter(cellData, '[p]', '')}
+    else if (checkStringForCharacter(cellData, '[reg]')){
+            cell.style.backgroundColor = '#2A9D8F'
+            cell.style.border = '0px solid blue'
+            cellData = replaceCellCharacter(cellData, '[reg]', '')
     }else if (checkStringForCharacter(cellData, '[e]')){
-        cell.style.backgroundColor = 'tan'
+        cell.style.backgroundColor = '#9d4edd'
+        cell.innerHTML.color = 'white'
         cellData = replaceCellCharacter(cellData, '[e]', '')
     }else if (checkStringForCharacter(cellData, '[b]')){
-        cell.style.backgroundColor = 'plum'
+        cell.style.backgroundColor = '#F4A261'
         cell.style.border = '0px solid blue'
         cellData = replaceCellCharacter(cellData, '[b]', '')
     }else if (checkStringForCharacter(cellData, '[v]')){
-        cell.style.backgroundColor = 'indianred'
+        cell.style.backgroundColor = '#E76F51'
         cellData = replaceCellCharacter(cellData, '[v]', '')
     }else if (checkStringForCharacter(cellData, '[r]')){
         cell.style.backgroundColor = 'slateblue'
@@ -116,7 +121,11 @@ const findCellType = (cell) => {
         cellType = '[s]'
     } else if(checkStringForCharacter(cell, '[b]')){
         cellType = ''
-    } else if(checkStringForCharacter(cell, '[e]')){
+    } 
+    else if(checkStringForCharacter(cell, '[reg]')){
+        cellType = ''
+    }
+    else if(checkStringForCharacter(cell, '[e]')){
         cellType = '[e]'
     } else if(checkStringForCharacter(cell, '[r]')){
         cellType = '[r]'
@@ -145,6 +154,16 @@ const handleGlobalRows = (rows) => {
                 for (var i=1; index+i < row.length; i++)
                 if(rows[rowsIndex][index+i] == null){
                     rows[rowsIndex][index+i] = '[b]'
+                }
+            }
+            else if(checkStringForCharacter(item, '[reg]')){
+                if(index == 1){
+                    moveToMiddleCell(item, rows, rowsIndex)
+                    rows[rowsIndex][index] = '[reg]'
+                }              
+                for (var i=1; index+i < row.length; i++)
+                if(rows[rowsIndex][index+i] == null){
+                    rows[rowsIndex][index+i] = '[reg]'
                 }
             }
         })
@@ -215,6 +234,8 @@ const printSpeakers = (speakers) => {
     li.innerHTML += speaker;
     });
 }
+
+
 
 
 
